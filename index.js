@@ -33,6 +33,9 @@ const alunosDaEscola = [{
     cursos: [{
         nomeDoCurso: "UX",
         dataMatricula: new Date
+    },{
+        nomeDoCurso: "ios",   //ADICIONEI, LEMBRAR DE TIRAR
+        dataMatricula: new Date
     }],
     faltas: 0
 }];
@@ -51,6 +54,72 @@ function adicionarAluno(nomeAluno) {
     }
 
     if(alunosDaEscola.length != (alunosDaEscola.push(novoAluno))) {
-        console.log('Aluno cadastrado');
+        console.log("Aluno cadastrado");
     }
 }
+
+function listarAlunos(){
+    /*Com essa função o usuário poderá ver todos os alunos cadastrados atualmente no sistema. 
+    Vale dizer que As informações deverão ser exibidas em um formato amigável.*/
+    alunosDaEscola.map( (aluno) => { 
+        for (prop in aluno) {
+            if(prop == "cursos") {
+                let cursos = aluno.cursos; 
+                if(cursos.length > 0){
+                    console.log("cursos: ");
+                    for (valor of cursos){
+                        for (propCurso in valor){
+                            if(propCurso == "dataMatricula") {
+                                /*
+                                let arrayData = valor//.split(" ");
+                                console.log(arrayData)
+
+                                let semana = arrayData[0];
+                                let mes = arrayData[1];
+                                let dia = arrayData[2];
+                                let ano = arrayData[3];
+                                let hora = arrayData[4];
+
+                                let dataFormatada = [dia, mes, ano];
+                                let stringDataFormatada = dataFormatada.join("/");
+                                //console.log(stringDataFormatada);
+                                //02/Mar/2020 
+                                
+                                let dataFormatadaAdd = [semana, hora];
+                                let stringDataFormatadaAdd = dataFormatadaAdd.join(" ");
+                                //console.log(stringDataFormatadaAdd);
+                                //Mon 18:24:01
+
+                                let dataMatriculaFormatada = dataFormatada + " " + dataFormatadaAdd;
+                                //console.log(dataMatriculaFormatada);
+
+                                console.log("   " + propCurso + ": " + dataMatriculaFormatada);
+                                */
+                                console.log("   " + propCurso + ": " + valor[propCurso]);
+                            } else if(propCurso == "nomeDoCurso") {
+                                console.log("   " + propCurso + ": " + valor[propCurso]);
+                            }
+                        }
+                    }
+                } else if(cursos.length == 0 || cursos.length < 0) {
+                    console.log("cursos: Não matriculado em nenhum curso");
+                }
+
+            } else if(prop == "notas") {
+                let notas = aluno.cursos; 
+                if(notas.length > 0) {
+                    console.log(prop + ": " + aluno[prop]);
+                } else if(notas.length == 0 || notas.length < 0){
+                    console.log("notas: Ainda sem notas");
+                }
+            
+            //PADRAO
+            } else {
+                console.log(prop + ": " + aluno[prop]);
+            }
+        }
+        console.log("\n");
+     })
+    
+}
+listarAlunos()
