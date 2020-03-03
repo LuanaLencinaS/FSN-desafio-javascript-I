@@ -198,10 +198,32 @@ aplicarFalta({
 listarAlunos();
 */
 
-function aplicarNota(aluno:object){
+function aplicarNota(aluno, nota){ //obj, number
     /*
      Ao receber um aluno devidamente cadastrado em nossa lista. Você deverá adicionar uma nota ao aluno na sua lista de notas. Você deverá dar um feedback ao concluir a tarefa. Só poderá aplicar nota em aluno se o mesmo tiver matriculado em um curso.
     */
 
-    
+    if((indiceAluno(aluno.nome)) != false) {
+        if(alunosDaEscola[indiceAluno(aluno.nome)].cursos.length > 0) {
+            alunosDaEscola[indiceAluno(aluno.nome)].notas.push(nota);
+            console.log("Nota adicionada ao aluno: " + aluno.nome);
+        } else {
+            console.log(aluno.nome + ": aluno não matriculado em nenhum curso");
+        }
+    } else {
+        console.log(aluno.nome + ": aluno não cadastrado");
+    }
 }
+
+/* chamada da função
+aplicarNota({
+    nome: "Guilherme",
+    notas: [10, 9.8, 9.6],
+    cursos: [{
+        nomeDoCurso: "Full Stack",
+        dataMatricula: new Date
+    }],
+    faltas: 0
+}, 5);
+listarAlunos();
+*/
