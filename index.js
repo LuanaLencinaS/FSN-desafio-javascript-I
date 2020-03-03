@@ -139,6 +139,7 @@ function indiceAluno(nomeAluno){
         }
         cont++;
     }
+    return false;
 }
 
 function matricularAluno(aluno, curso){ //obj, string
@@ -146,7 +147,7 @@ function matricularAluno(aluno, curso){ //obj, string
     Essa função só poderá ser executada em um aluno já devidamente cadastrado no sistema, e deverá armazenar a data atual no momento da matricula
     Lembre-se de exibir o feedback para o usuário. */
 
-    if((buscarAluno(aluno.nome)) != false) {
+    if((indiceAluno(aluno.nome)) != false) {
         alunosDaEscola[indiceAluno(aluno.nome)].cursos.push({
             nomeDoCurso: curso,
             dataMatricula: new Date
@@ -166,3 +167,41 @@ matricularAluno({
     }, "Front");
     listarAlunos();
     */
+
+function aplicarFalta(aluno){ //objeto
+/*
+    Ao receber um aluno devidamente cadastrado em nossa lista. Você deverá incrementar uma falta ao aluno. Você deverá dar um feedback ao concluir a tarefa. Só poderá aplicar falta em aluno se o mesmo tiver matriculado em um curso.
+*/
+    if((indiceAluno(aluno.nome)) != false) {
+        if(alunosDaEscola[indiceAluno(aluno.nome)].cursos.length > 0) {
+            alunosDaEscola[indiceAluno(aluno.nome)].faltas++;
+            console.log("Falta aplicada no aluno: " + aluno.nome);
+        } else {
+            console.log(aluno.nome + ": aluno não matriculado em nenhum curso");
+        }
+    } else {
+        console.log(aluno.nome + ": aluno não cadastrado");
+    }
+
+}
+
+/*chamada da funçao
+aplicarFalta({
+    nome: "Guilherme",
+    notas: [10, 9.8, 9.6],
+    cursos: [{
+        nomeDoCurso: "Full Stack",
+        dataMatricula: new Date
+    }],
+    faltas: 0
+});
+listarAlunos();
+*/
+
+function aplicarNota(aluno:object){
+    /*
+     Ao receber um aluno devidamente cadastrado em nossa lista. Você deverá adicionar uma nota ao aluno na sua lista de notas. Você deverá dar um feedback ao concluir a tarefa. Só poderá aplicar nota em aluno se o mesmo tiver matriculado em um curso.
+    */
+
+    
+}
