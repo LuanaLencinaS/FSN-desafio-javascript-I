@@ -33,9 +33,6 @@ const alunosDaEscola = [{
     cursos: [{
         nomeDoCurso: "UX",
         dataMatricula: new Date
-    },{
-        nomeDoCurso: "ios",   //ADICIONEI, LEMBRAR DE TIRAR
-        dataMatricula: new Date
     }],
     faltas: 0
 }];
@@ -125,10 +122,47 @@ function buscarAluno(nomeAluno){
         if(nome.indexOf(nomeAluno) != -1) {
             console.log("Aluno encontrado");
             return aluno;
-        } else {
-            console.log("Aluno não cadastrado");
         }
-        
-     }
+    }
+    
+    console.log("Aluno não cadastrado");
+    return false;
 }
-listarAlunos(buscarAluno("Henrique"));
+
+function indiceAluno(nomeAluno){
+    /* Função adicional: Retorna o indice do aluno buscado */
+    let cont = 0;
+    for (aluno of alunosDaEscola) {
+        let nome = aluno.nome;
+        if(nome.indexOf(nomeAluno) != -1) {
+            return cont;
+        }
+        cont++;
+    }
+}
+
+function matricularAluno(aluno, curso){ //obj, string
+    /* Essa funcionalidade irá permitir, cadastrar um aluno em um curso. 
+    Essa função só poderá ser executada em um aluno já devidamente cadastrado no sistema, e deverá armazenar a data atual no momento da matricula
+    Lembre-se de exibir o feedback para o usuário. */
+
+    if((buscarAluno(aluno.nome)) != false) {
+        alunosDaEscola[indiceAluno(aluno.nome)].cursos.push({
+            nomeDoCurso: curso,
+            dataMatricula: new Date
+        })
+    }
+}
+/*
+chamada da funçao
+matricularAluno({
+    nome: "Lucca",
+    notas: [10, 9.8, 9.6],
+    cursos: [{
+        nomeDoCurso: "UX",
+        dataMatricula: new Date
+    }],
+    faltas: 0
+    }, "Front");
+    listarAlunos();
+    */
