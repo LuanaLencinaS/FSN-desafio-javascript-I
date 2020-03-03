@@ -70,32 +70,27 @@ function listarAlunos(){
                     for (valor of cursos){
                         for (propCurso in valor){
                             if(propCurso == "dataMatricula") {
-                                /*
-                                let arrayData = valor//.split(" ");
-                                console.log(arrayData)
+                                let data = valor[propCurso];
 
-                                let semana = arrayData[0];
-                                let mes = arrayData[1];
-                                let dia = arrayData[2];
-                                let ano = arrayData[3];
-                                let hora = arrayData[4];
-
+                                let dia = data.getDate();
+                                let mes = (data.getMonth() + 1);//0 = janeiro
+                                let ano = data.getFullYear();
                                 let dataFormatada = [dia, mes, ano];
                                 let stringDataFormatada = dataFormatada.join("/");
-                                //console.log(stringDataFormatada);
-                                //02/Mar/2020 
+
+                                let semana = data.getDay() //0 = domingo
+
+                                let hora = data.getHours(); //hora
+                                let minutos = data.getMinutes();//minuto
+                                let segundos = data.getSeconds(); //segundos
+                                let horaFormatada = [hora, minutos, segundos];
+                                let stringHoraFormatada = horaFormatada.join(":");
+                                 
+                                let arraySemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
                                 
-                                let dataFormatadaAdd = [semana, hora];
-                                let stringDataFormatadaAdd = dataFormatadaAdd.join(" ");
-                                //console.log(stringDataFormatadaAdd);
-                                //Mon 18:24:01
-
-                                let dataMatriculaFormatada = dataFormatada + " " + dataFormatadaAdd;
-                                //console.log(dataMatriculaFormatada);
-
+                                let dataMatriculaFormatada = stringDataFormatada + " " + stringHoraFormatada + " " + arraySemana[semana];
                                 console.log("   " + propCurso + ": " + dataMatriculaFormatada);
-                                */
-                                console.log("   " + propCurso + ": " + valor[propCurso]);
+                            
                             } else if(propCurso == "nomeDoCurso") {
                                 console.log("   " + propCurso + ": " + valor[propCurso]);
                             }
@@ -113,7 +108,6 @@ function listarAlunos(){
                     console.log("notas: Ainda sem notas");
                 }
             
-            //PADRAO
             } else {
                 console.log(prop + ": " + aluno[prop]);
             }
@@ -122,4 +116,4 @@ function listarAlunos(){
      })
     
 }
-listarAlunos()
+

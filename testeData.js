@@ -2,6 +2,28 @@ var data = new Date();
 console.log(data); //2020-02-03T16:32:15.205Z
 //Mon Mar 02 2020 18:25:34 GMT-0300 (GMT-03:00)
 
+let dia = data.getDate();
+console.log(dia);
+
+let mes = (data.getMonth() + 1);//0 = janeiro
+console.log(mes);
+
+let ano = data.getFullYear();
+console.log(ano);
+
+let semana = data.getDay() //0 = domingo
+console.log(semana);
+
+let hora = data.getHours(); //hora
+console.log(hora);
+
+let minutos = data.getMinutes();//minuto
+console.log(minutos);
+
+let segundos = data.getSeconds(); //segundos
+console.log(segundos);
+
+/*
 function imprimeDataFormatada(data) {
     let arrayData = data.split("-"); 
     //console.log(arrayData); 
@@ -15,8 +37,7 @@ function imprimeDataFormatada(data) {
 }
 
 imprimeDataFormatada(data); //11/1/2019
-
-
+*/
 
 
 
@@ -86,6 +107,29 @@ console.log(data);
 */
 
 
+/*
 
+ let arrayData = valor//.split(" ");
+                                console.log(arrayData)
 
+                                let semana = arrayData[0];
+                                let mes = arrayData[1];
+                                let dia = arrayData[2];
+                                let ano = arrayData[3];
+                                let hora = arrayData[4];
 
+                                let dataFormatada = [dia, mes, ano];
+                                let stringDataFormatada = dataFormatada.join("/");
+                                //console.log(stringDataFormatada);
+                                //02/Mar/2020 
+                                
+                                let dataFormatadaAdd = [semana, hora];
+                                let stringDataFormatadaAdd = dataFormatadaAdd.join(" ");
+                                //console.log(stringDataFormatadaAdd);
+                                //Mon 18:24:01
+
+                                let dataMatriculaFormatada = dataFormatada + " " + dataFormatadaAdd;
+                                //console.log(dataMatriculaFormatada);
+
+                                console.log("   " + propCurso + ": " + dataMatriculaFormatada);
+*/
